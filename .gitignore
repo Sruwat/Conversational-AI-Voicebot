@@ -13,5 +13,6 @@ __pycache__/
 *.bak
 .DS_Store
 .env
+memory.json
 venv/
 Scripts/
