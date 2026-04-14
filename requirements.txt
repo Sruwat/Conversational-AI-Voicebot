@@ -1,0 +1,17 @@
+fastapi
+groq
+noisereduce
+numpy
+openai-whisper
+pyttsx3
+python-dotenv
+python-multipart
+sounddevice
+soundfile
+uvicorn
+websockets
+
+# Optional free local upgrades for better quality and lower latency
+faster-whisper
+silero-vad
+openwakeword

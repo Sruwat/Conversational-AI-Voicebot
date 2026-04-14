@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css?v=20260414b">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Real-Time Voice Assistant</p>
+      <h1>Talk naturally. Interrupt freely.</h1>
+      <p class="subtitle">A lightweight browser UI for your upgraded FastAPI voicebot.</p>
+    </section>
+
+    <section class="panel">
+      <div class="status-row">
+        <div class="status-pill" id="status-pill" data-state="idle">Idle</div>
+        <div class="status-meta">
+          <div class="transport-pill" id="transport-pill">Turn Mode</div>
+          <div class="session-label" id="session-label">Connecting...</div>
+        </div>
+      </div>
+      <div class="error-banner" id="error-banner" hidden></div>
+
+      <div class="chat-log" id="chat-log"></div>
+      <div class="live-caption" id="live-caption">Partial transcript will appear here while you speak.</div>
+      <div class="level-meter" aria-hidden="true">
+        <div class="level-meter-fill" id="level-meter-fill"></div>
+      </div>
+
+      <div class="settings-grid">
+        <label>
+          Microphone
+          <select id="device-select"></select>
+        </label>
+        <label>
+          Silence End (ms)
+          <input id="silence-input" type="number" value="600" min="250" step="50">
+        </label>
+        <label>
+          Partial Interval (ms)
+          <input id="partial-input" type="number" value="700" min="300" step="50">
+        </label>
+        <label>
+          <span id="interrupt-label">Interrupt Threshold (ms)</span>
+          <input id="interrupt-input" type="number" value="200" min="120" step="20">
+        </label>
+      </div>
+
+      <div class="controls">
+        <button id="mic-button" class="mic-button" type="button">Start Listening</button>
+        <button id="reset-button" class="secondary-button" type="button">New Session</button>
+        <button id="apply-button" class="secondary-button" type="button">Apply Settings</button>
+        <p class="hint" id="transport-hint">Tap once to start listening. The browser will send each finished utterance as a voice turn.</p>
+      </div>
+
+      <audio id="player" controls preload="auto"></audio>
+    </section>
+  </main>
+
+  <script src="/static/app.js?v=20260414b"></script>
+</body>
+</html>
