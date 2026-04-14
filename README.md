@@ -35,7 +35,7 @@ We built a voice assistant platform with these capabilities:
 
 ## High-Level Architecture
 
-![alt text](image.png)
+
 
 > **Note:** The following diagrams will render visually only in Markdown viewers that support Mermaid (e.g., VS Code with Mermaid extension, StackEdit, Obsidian). On GitHub, they will appear as code.
 
@@ -523,29 +523,57 @@ voice_bot/
 
 ## Setup
 
-### 1. Install dependencies
+### 1. Clone the repository
+
+```powershell
+git clone https://github.com/Sruwat/Conversational-AI-Voicebot.git
+cd Conversational-AI-Voicebot
+```
+
+### 2. Create and activate a virtual environment
+
+Use Python 3.10 or 3.11 if possible. Audio and AI packages such as Whisper, Torch, and voice tooling can be harder to install on newer Python versions.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\activate
+python -m pip install --upgrade pip
+```
+
+### 3. Install dependencies
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 2. Create or update `.env`
+### 4. Create or update `.env`
 
-Add your Groq key and preferred providers.
+Create a `.env` file in the project folder and add your own Groq API key. Do not commit this file.
 
-### 3. Run desktop mode
+```env
+GROQ_API_KEY=your_groq_api_key_here
+GROQ_MODEL=llama-3.1-8b-instant
+GROQ_COMPLEX_MODEL=llama-3.3-70b-versatile
+STT_PROVIDER=auto
+STT_MODEL=tiny
+TTS_PROVIDER=auto
+BYPASS_WAKE_WORD=true
+ENABLE_BROWSER_REALTIME=false
+```
+
+### 5. Run desktop mode
 
 ```powershell
 .\launch.ps1 -Mode desktop
 ```
 
-### 4. Run API mode
+### 6. Run API mode
 
 ```powershell
 .\launch.ps1 -Mode api -BindHost 127.0.0.1 -Port 8000
 ```
 
-### 5. Open browser mode
+### 7. Open browser mode
 
 Visit `http://127.0.0.1:8000`
 
@@ -586,4 +614,3 @@ Useful endpoints:
 ## Summary
 
 This repository contains a full voice assistant stack, not just a chatbot. It combines live audio capture, wake-word logic, VAD, STT, LLM generation, memory, TTS, interruption handling, browser support, and an API service into one system. The architecture is modular, resilient, and suitable for both local experimentation and further productization.
-
